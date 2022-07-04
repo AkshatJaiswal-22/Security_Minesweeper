@@ -726,6 +726,8 @@ int main()
                             if(temp!=1)
                             {
                                 a=temp;
+                                infi=0;
+                                cout<<"Session Terminated\n";
                             }
                         }
                     }
