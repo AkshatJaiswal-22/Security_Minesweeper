@@ -14,12 +14,14 @@ int SIDE ; // side length of the board
 int MINES ; // number of mines on the board
 // A Utility Function to check whether given cell (row, col)
 // is a valid cell or not
-unsigned int Hash(string &data)
+unsigned long long Hash(string &data)
 {
-    unsigned int result(0);
+    unsigned long long result=0;
+    const unsigned long long res= data.size()+1;
     for(unsigned int ch: data)
     {
-        result = ch+(result<<4)+(result<<10)-result;
+        srand(res*ch);
+        result = 69190469 + rand()*169;
     }
     return result;
 }
@@ -546,7 +548,7 @@ int main()
     --> ADVANCED = 24 * 24 Cells and 99 Mines
     */
     string old,twolayer;
-    unsigned int line,line2,line3,line4,line5,line6;
+    unsigned long long int line,line2,line3,line4,line5,line6;
     int a=1,temp;
     int level=1,access,change=1;
     // cout<<"******** SECURITY SYSTEM ACCESS ********"<<endl;
@@ -563,7 +565,7 @@ int main()
             ifstream outf;      //file opened in read mode
             outf.open("Password.txt");
             cin>>old;
-            unsigned int hash1 { Hash(old)};
+            unsigned long long hash1 { Hash(old)};
             if(outf.is_open())
             {
                 while(!outf.eof())
@@ -575,7 +577,7 @@ int main()
                         ifstream second;
                         second.open("TwoLayer.txt");
                         cin>>twolayer;
-                        unsigned int hash2 {Hash(twolayer)};
+                        unsigned long long hash2 {Hash(twolayer)};
                         if(second.is_open())
                         {
                             while(!second.eof())
@@ -666,7 +668,7 @@ int main()
                 ifstream outf;      //file opened in read mode
                 outf.open("Password.txt");
                 cin>>old;
-                unsigned int hash3 { Hash(old)};
+                unsigned long long hash3 { Hash(old)};
                 if(outf.is_open())
                 {
                     while(!outf.eof())
@@ -678,7 +680,7 @@ int main()
                             ifstream second;
                             second.open("TwoLayer.txt");
                             cin>>twolayer;
-                            unsigned int hash4 { Hash(twolayer)};
+                            unsigned long long hash4 { Hash(twolayer)};
                             if(second.is_open())
                             {
                                 while(!second.eof())
@@ -739,7 +741,7 @@ int main()
                 ifstream outf;      //file opened in read mode
                 outf.open("Password.txt");
                 cin>>old;
-                unsigned int hash5 { Hash(old)};
+                unsigned long long hash5 { Hash(old)};
                 if(outf.is_open())
                 {
                     while(!outf.eof())
@@ -751,7 +753,7 @@ int main()
                             ifstream second;
                             second.open("TwoLayer.txt");
                             cin>>twolayer;
-                            unsigned int hash6 { Hash(twolayer)};
+                            unsigned long long hash6 { Hash(twolayer)};
                             if(second.is_open())
                             {
                                 while(!second.eof())
